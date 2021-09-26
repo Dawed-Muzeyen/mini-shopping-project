@@ -1,0 +1,9 @@
+2021-09-26 08:49:04 [http-nio-8080-exec-1] INFO  e.m.c.s.c.c.CustomerController - /api/v1/customer/{id} is being accessed!
+2021-09-26 13:01:52 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Starting CourseAssignmentForUsApplication using Java 11.0.12 on LAPTOPEM4E837L with PID 29920 (C:\Learning materials\Spring\Spring August\course-assignment-for-us\target\classes started by dawed in C:\Learning materials\Spring\Spring August\course-assignment-for-us)
+2021-09-26 13:01:52 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - No active profile set, falling back to default profiles: default
+2021-09-26 13:02:07 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Started CourseAssignmentForUsApplication in 16.13 seconds (JVM running for 19.524)
+2021-09-26 13:34:23 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Starting CourseAssignmentForUsApplication using Java 11.0.12 on LAPTOPEM4E837L with PID 11288 (C:\Learning materials\Spring\Spring August\course-assignment-for-us\target\classes started by dawed in C:\Learning materials\Spring\Spring August\course-assignment-for-us)
+2021-09-26 13:34:23 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - No active profile set, falling back to default profiles: default
+2021-09-26 13:34:28 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Started CourseAssignmentForUsApplication in 5.851 seconds (JVM running for 7.396)
+2021-09-26 13:44:29 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Starting CourseAssignmentForUsApplication using Java 11.0.12 on LAPTOPEM4E837L with PID 38444 (C:\Learning materials\Spring\Spring August\course-assignment-for-us\target\classes started by dawed in C:\Learning materials\Spring\Spring August\course-assignment-for-us)
+2021-09-26 13:44:29 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - No active profile set, falling back to default profiles: default

@@ -1,0 +1,15 @@
+2021-09-25 19:23:37 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Started CourseAssignmentForUsApplication in 6.505 seconds (JVM running for 8.056)
+2021-09-25 19:23:55 [http-nio-8080-exec-5] INFO  e.m.c.s.c.c.CustomerController - /api/v1/customer/{id} is being accessed!
+2021-09-25 19:23:56 [http-nio-8080-exec-5] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot determine value type from string 'string'
+2021-09-25 19:28:17 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Starting CourseAssignmentForUsApplication using Java 11.0.12 on LAPTOPEM4E837L with PID 20220 (C:\Learning materials\Spring\Spring August\course-assignment-for-us\target\classes started by dawed in C:\Learning materials\Spring\Spring August\course-assignment-for-us)
+2021-09-25 19:28:17 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - No active profile set, falling back to default profiles: default
+2021-09-25 19:28:23 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Started CourseAssignmentForUsApplication in 6.142 seconds (JVM running for 7.62)
+2021-09-25 19:28:23 [http-nio-8080-exec-1] INFO  e.m.c.s.c.c.CustomerController - /api/v1/customer/{id} is being accessed!
+2021-09-25 19:28:23 [http-nio-8080-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot determine value type from string 'string'
+2021-09-25 19:30:19 [http-nio-8080-exec-3] INFO  e.m.c.s.c.c.CustomerController - /api/v1/customer/{id} is being accessed!
+2021-09-25 19:30:28 [http-nio-8080-exec-4] INFO  e.m.c.s.c.c.CustomerController - /api/v1/customer/{id} is being accessed!
+2021-09-25 19:30:40 [http-nio-8080-exec-5] INFO  e.m.c.s.c.c.CustomerController - /api/v1/customer/{id} is being accessed!
+2021-09-25 19:30:40 [http-nio-8080-exec-5] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot determine value type from string 'string'
+2021-09-25 20:33:53 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Starting CourseAssignmentForUsApplication using Java 11.0.12 on LAPTOPEM4E837L with PID 31148 (C:\Learning materials\Spring\Spring August\course-assignment-for-us\target\classes started by dawed in C:\Learning materials\Spring\Spring August\course-assignment-for-us)
+2021-09-25 20:33:53 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - No active profile set, falling back to default profiles: default
+2021-09-25 20:33:59 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Started CourseAssignmentForUsApplication in 7.234 seconds (JVM running for 9.586)

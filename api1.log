@@ -1,0 +1,23 @@
+2021-09-22 18:06:36 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Starting CourseAssignmentForUsApplication using Java 11.0.12 on LAPTOPEM4E837L with PID 17612 (C:\Learning materials\Spring\Spring August\course-assignment-for-us\target\classes started by dawed in C:\Learning materials\Spring\Spring August\course-assignment-for-us)
+2021-09-22 18:06:36 [main] DEBUG e.m.c.s.CourseAssignmentForUsApplication - Running with Spring Boot v2.5.4, Spring v5.3.9
+2021-09-22 18:06:36 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - No active profile set, falling back to default profiles: default
+2021-09-22 18:06:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-22 18:06:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2021-09-22 18:06:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-09-22 18:06:38 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2021-09-22 18:06:38 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-22 18:06:38 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-09-22 18:06:38 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1698 ms
+2021-09-22 18:06:38 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-22 18:06:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-22 18:06:38 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-22 18:06:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-09-22 18:06:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-09-22 18:06:39 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-09-22 18:06:39 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-22 18:06:39 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-22 18:06:40 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-22 18:06:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-22 18:06:41 [main] INFO  e.m.c.s.CourseAssignmentForUsApplication - Started CourseAssignmentForUsApplication in 5.275 seconds (JVM running for 6.558)
+2021-09-22 18:07:32 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-22 18:07:32 [http-nio-8080-exec-1] DEBUG e.m.c.s.c.c.CustomerController - getById method is being accessed!
