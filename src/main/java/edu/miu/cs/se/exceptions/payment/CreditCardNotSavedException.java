@@ -5,10 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
-public class PaymentCardNotFoundException extends RuntimeException {
+@ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+public class CreditCardNotSavedException extends RuntimeException {
     private String message;
-    public PaymentCardNotFoundException(String message) {
+    public CreditCardNotSavedException(String message) {
         super(message);
     }
 }

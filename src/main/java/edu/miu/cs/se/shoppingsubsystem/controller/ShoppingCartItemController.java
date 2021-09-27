@@ -26,7 +26,7 @@ public class ShoppingCartItemController {
     private ShoppingCartItemService shoppingCartItemService;
     private ValidateShoppingCart validateShoppingCart;
 
-    private Logger logger = LoggerFactory.getLogger(ShoppingCartItem.class);
+    private Logger logger = LoggerFactory.getLogger(ShoppingCartItemController.class);
     @Autowired
     public ShoppingCartItemController(ShoppingCartItemService shoppingCartItemService, ValidateShoppingCart validateShoppingCart) {
         this.shoppingCartItemService = shoppingCartItemService;

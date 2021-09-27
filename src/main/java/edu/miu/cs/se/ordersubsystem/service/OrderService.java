@@ -84,10 +84,7 @@ public class OrderService {
     }
 
     public Optional<Order> saveOrderInfoOfCustomer(Order order, long customer_id) {
-
-
-
-        Set<Long> allIds = orderRepository.allOrderIds();
+       Set<Long> allIds = orderRepository.allOrderIds();
         long id = new Random().nextLong();
         while(allIds.contains(id)){
             id = new Random().nextLong();

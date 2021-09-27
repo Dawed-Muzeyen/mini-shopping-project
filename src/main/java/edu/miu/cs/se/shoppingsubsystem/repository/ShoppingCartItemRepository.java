@@ -32,8 +32,8 @@ public interface ShoppingCartItemRepository extends JpaRepository<ShoppingCartIt
     Optional<List<ShoppingCartItem>> findByTotalPrice(double totalPrice);
 
 
-    @Query(value = "select id from shopping_cart" ,
+    @Query(value = "select id from shopping_cart_item" ,
             nativeQuery = true
     )
-    Set<Long> allShoppingCartIds();
+    Set<Long> allShoppingCartItemIds();
 }

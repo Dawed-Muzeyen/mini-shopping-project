@@ -87,7 +87,7 @@ public class ShoppingCartItemService {
     }
 
     public Optional<ShoppingCartItem> saveShoppingCartItemInfoOfShoppingCart(ShoppingCartItem shoppingCartItem, long order_id) {
-        Set<Long> allIds = shoppingCartItemRepository.allShoppingCartIds();
+        Set<Long> allIds = shoppingCartItemRepository.allShoppingCartItemIds();
         long id = new Random().nextLong();
         while(allIds.contains(id)){
             id = new Random().nextLong();

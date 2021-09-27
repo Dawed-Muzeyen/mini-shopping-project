@@ -12,8 +12,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -45,6 +47,21 @@ public class CustomerController {
         Optional<Customer> customerSaved = customerService.saveCustomer(customer);
         return customerSaved.orElseThrow(() -> new CustomerNotSavedException("Customer Data is not Saved"));
     }
+    @PostMapping(value = "/customers/save", consumes = "application/json", produces = "application/json")
+    public ResponseEntity saveUsers(@RequestBody List<Customer> customers) throws Exception {
+
+            customerService.saveMoreThanOneCustomer(customers);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+   /* @PostMapping(value = "/customers/save", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = "application/json")
+    public ResponseEntity saveUsers(@RequestParam(value = "files") MultipartFile[] files) throws Exception {
+        for (MultipartFile file : files) {
+            customerService.saveMoreThanOneCustomer(file);
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }*/
 
     @DeleteMapping("/delete")
     public Customer deleteCustomer(@RequestBody Customer customer) {

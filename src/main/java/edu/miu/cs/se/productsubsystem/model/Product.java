@@ -18,14 +18,14 @@ public class Product {
     private String description;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
-    private List<Catalog> cartItems = new ArrayList<>();
+    private List<Catalog> catalogs = new ArrayList<>();
 
-    public List<Catalog> getCartItems() {
-        return cartItems;
+    public List<Catalog> getCatalogs() {
+        return catalogs;
     }
 
-    public void setCartItems(List<Catalog> cartItems) {
-        this.cartItems = cartItems;
+    public void setCatalogs(List<Catalog> catalogs) {
+        this.catalogs = catalogs;
     }
 
     public Product() {

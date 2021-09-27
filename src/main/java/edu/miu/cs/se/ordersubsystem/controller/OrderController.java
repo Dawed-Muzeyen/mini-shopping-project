@@ -27,7 +27,7 @@ import java.util.Optional;
 public class OrderController {
     private OrderService orderService;
     private ValidateCustomer validateCustomer;
-    private Logger logger = LoggerFactory.getLogger(Order.class);
+    private Logger logger = LoggerFactory.getLogger(OrderController.class);
     @Autowired
     public OrderController(OrderService orderService, ValidateCustomer validateCustomer) {
         this.orderService = orderService;

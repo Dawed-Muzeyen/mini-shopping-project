@@ -79,7 +79,7 @@ public class OrderItemService {
     }
 
     public Optional<OrderItem> saveOrderItemInfoOfOrder(OrderItem orderItem, long order_id) {
-        Set<Long> allIds = orderItemRepository.allOrderIds();
+        Set<Long> allIds = orderItemRepository.allOrderItemIds();
         long id = new Random().nextLong();
         while(allIds.contains(id)){
             id = new Random().nextLong();

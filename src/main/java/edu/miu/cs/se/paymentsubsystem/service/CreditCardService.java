@@ -3,6 +3,7 @@ package edu.miu.cs.se.paymentsubsystem.service;
 import edu.miu.cs.se.customersubsystem.service.CustomerService;
 import edu.miu.cs.se.paymentsubsystem.model.CreditCard;
 import edu.miu.cs.se.paymentsubsystem.repository.CreditCardRepository;
+import edu.miu.cs.se.shoppingsubsystem.model.ShoppingCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,27 +25,31 @@ public class CreditCardService {
         this.customerService = customerService;
     }
 
-    public List<CreditCard> getAllCreditCard() {
-        return creditCardRepository.findAll();
+    public Optional<List<CreditCard>> getAllCreditCards() {
+        return Optional.of(creditCardRepository.findAll());
     }
 
-    public CreditCard saveCreditCard(CreditCard creditCard) {
-        return creditCardRepository.save(creditCard);
+    public Optional<CreditCard>  saveCreditCard(CreditCard creditCard) {
+        return Optional.of(creditCardRepository.save(creditCard));
     }
 
-    public CreditCard getCreditCardById(long id) {
-        return creditCardRepository.findById(id).get();
+    public Optional<CreditCard>  getCreditCardById(long id) {
+        return creditCardRepository.findById(id);
     }
 
-    public void deleteCreditCard(CreditCard creditCard) {
+    public Optional<CreditCard>  deleteCreditCard(CreditCard creditCard) {
         creditCardRepository.delete(creditCard);
+       return Optional.of(creditCard);
     }
 
-    public void deleteCreditCardById(long id) {
+    public Optional<CreditCard>  deleteCreditCardById(long id) {
+        Optional<CreditCard> creditCardDeleted =  creditCardRepository.findById(id);
         creditCardRepository.deleteById(id);
+        return creditCardDeleted;
+
     }
 
-    public CreditCard updateCreditCardById(long id, CreditCard creditCard) {
+    public Optional<CreditCard>  updateCreditCardById(long id, CreditCard creditCard) {
         CreditCard creditCardTemp = creditCardRepository.getById(id);
 
         if(!Optional.of(creditCard.getNameOnCard()).isEmpty())
@@ -59,35 +64,35 @@ public class CreditCardService {
         if(!Optional.of(creditCard.getCardType()).isEmpty())
             creditCardTemp.setCardType(creditCard.getCardType());
 
-        return creditCardRepository.save(creditCardTemp);
+        return Optional.of(creditCardRepository.save(creditCardTemp));
     }
 
-    public void saveCreditCardInfoOfCustomer(CreditCard creditCard, long customer_id) {
+    public Optional<CreditCard> saveCreditCardInfoOfCustomer(CreditCard creditCard, long customer_id) {
 
-
-        Set<Long> allIds = creditCardRepository.allCreditCardIds();
+       Set<Long> allIds = creditCardRepository.allCreditCardIds();
         long id = new Random().nextLong();
         while(allIds.contains(id)){
             id = new Random().nextLong();
         }
         creditCardRepository.insertCreditCardInfoOfCustomer(id, creditCard.getNameOnCard(), creditCard.getExpirationDate(), creditCard.getCardNum(),
                 creditCard.getCardType(),customer_id);
+    return Optional.of(creditCard);
     }
 
-    public List<CreditCard> getCreditCardsByCustomerId(long customer_id){
+    public Optional<List<CreditCard>> getCreditCardsByCustomerId(long customer_id){
         return creditCardRepository.selectCreditCardsByCustomerId(customer_id);
     }
 
-    public List<CreditCard> getByNameOnCard(String nameOnCard) {
+    public Optional<List<CreditCard>> getCreditCardsByNameOnCard(String nameOnCard) {
         return creditCardRepository.findByNameOnCard(nameOnCard);
     }
-    public List<CreditCard> getByExpirationDate(String expirationDate) {
+    public Optional<List<CreditCard>> getCreditCardsByExpirationDate(String expirationDate) {
         return creditCardRepository.findByExpirationDate(expirationDate);
     }
-    public List<CreditCard> getByCardNum(String cardNum) {
+    public Optional<List<CreditCard>> getCreditCardsByCardNum(String cardNum) {
         return creditCardRepository.findByCardNum(cardNum);
     }
-    public  List<CreditCard> getByCardType(String cardType) {
+    public  Optional<List<CreditCard>> getCreditCardsByCardType(String cardType) {
         return creditCardRepository.findByCardType(cardType);
     }
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -28,12 +29,12 @@ public interface CreditCardRepository extends JpaRepository<CreditCard, Long> {
             "from credit_card cr INNER JOIN customer c on cr.customer_id = c.id and cr.customer_id = :customer_id ",
             nativeQuery = true
     )
-     List<CreditCard> selectCreditCardsByCustomerId(@Param("customer_id") long customer_id);
+    Optional<List<CreditCard>> selectCreditCardsByCustomerId(@Param("customer_id") long customer_id);
 
-     List<CreditCard> findByNameOnCard(String nameOnCard);
-     List<CreditCard> findByExpirationDate(String expirationDate);
-     List<CreditCard> findByCardNum(String cardNum);
-     List<CreditCard> findByCardType(String cardType);
+    Optional<List<CreditCard>>findByNameOnCard(String nameOnCard);
+    Optional<List<CreditCard>>findByExpirationDate(String expirationDate);
+    Optional<List<CreditCard>>findByCardNum(String cardNum);
+    Optional<List<CreditCard>>findByCardType(String cardType);
 
     @Query(value = "select id from credit_card" ,
             nativeQuery = true

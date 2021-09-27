@@ -26,7 +26,7 @@ public class OrderItemController {
     private OrderItemService orderItemService;
     private ValidateOrder validateOrder;
 
-    private Logger logger = LoggerFactory.getLogger(OrderItem.class);
+    private Logger logger = LoggerFactory.getLogger(OrderItemController.class);
 
     @Autowired
     public OrderItemController(OrderItemService orderItemService, ValidateOrder validateOrder) {

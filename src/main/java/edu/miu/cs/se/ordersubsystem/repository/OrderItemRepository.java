@@ -34,9 +34,9 @@ public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
 
     Optional<List<OrderItem>> findByQuantity(long quantity);
     Optional<List<OrderItem>> findByTotalPrice(double totalPrice);
-    @Query(value = "select id from shopping_cart" ,
+    @Query(value = "select id from order_item" ,
             nativeQuery = true
     )
-    Set<Long> allOrderIds();
+    Set<Long> allOrderItemIds();
 }
 

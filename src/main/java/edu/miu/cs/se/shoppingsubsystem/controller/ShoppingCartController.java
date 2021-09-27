@@ -34,26 +34,26 @@ public class ShoppingCartController {
         this.validateCustomer = validateCustomer;
     }
 
-    private Logger logger = LoggerFactory.getLogger(ShoppingCart.class);
+    private Logger logger = LoggerFactory.getLogger(ShoppingCartController.class);
 
 
     @PutMapping("/update/{id}")
     public ShoppingCart updateShoppingCartById(@PathVariable("id") long id, @RequestBody ShoppingCart shoppingCart) {
-        logger.info("/api/v1/shoppingCart/update/{id} is being accessed!");
+        logger.info("/api/v1/shopping-cart/update/{id} is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<ShoppingCart> shoppingCartUpdated = shoppingCartService.updateShoppingCartById(id, shoppingCart);
-        return shoppingCartUpdated.orElseThrow(() -> new OrderNotModifiedException("ShoppingCart Data is not Updated"));
+        return shoppingCartUpdated.orElseThrow(() -> new OrderNotModifiedException("Shopping Cart Data is not Updated"));
     }
 
 
     @PostMapping("/save")
     public ShoppingCart saveShoppingCart(@RequestBody ShoppingCart shoppingCart) {
-        logger.info("/api/v1/shoppingCart/save is being accessed!");
+        logger.info("/api/v1/shopping-cart/save is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<ShoppingCart> shoppingCartSaved = shoppingCartService.saveShoppingCart(shoppingCart);
-        return shoppingCartSaved.orElseThrow(() -> new ShoppingCartNotSavedException("ShoppingCart Data is not Saved"));
+        return shoppingCartSaved.orElseThrow(() -> new ShoppingCartNotSavedException("Shopping Cart Data is not Saved"));
 
 
     }
@@ -64,89 +64,89 @@ public class ShoppingCartController {
             throw new CustomerNotFoundException("There is no Customer with ID " + customer_id);
 
 
-        logger.info("/api/v1/shoppingCart/save/{customer_id} is being accessed!");
+        logger.info("/api/v1/shopping-cart/save/{customer_id} is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<ShoppingCart> shoppingCartSaved = shoppingCartService.saveShoppingCartInfoOfCustomer(shoppingCart, customer_id);
-        return shoppingCartSaved.orElseThrow(() -> new ShoppingCartNotSavedException("ShoppingCart Data is not Saved"));
+        return shoppingCartSaved.orElseThrow(() -> new ShoppingCartNotSavedException("Shopping Cart Data is not Saved"));
     }
 
 
     @GetMapping("/all")
     public ResponseEntity<List<ShoppingCart>> getAllShoppingCarts() {
-        logger.info("/api/v1/shoppingCart/all api resource is being fetched");
+        logger.info("/api/v1/shopping-cart/all api resource is being fetched");
         Optional<List<ShoppingCart>> shoppingCartList = shoppingCartService.getAllShoppingCarts();
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
-        return new ResponseEntity<>(shoppingCartList.orElseThrow(() -> new ShoppingCartNotFoundException("ShoppingCart Data is Empty. No information at all")), responseHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(shoppingCartList.orElseThrow(() -> new ShoppingCartNotFoundException("Shopping Cart Data is Empty. No information at all")), responseHeaders, HttpStatus.OK);
 
     }
 
-    @GetMapping("/shoppingCarts/{customer_id}")
+    @GetMapping("/shopping-carts/{customer_id}")
     public List<ShoppingCart> getShoppingCartsByCustomerId(@PathVariable("customer_id") long customer_id) {
         logger.info("Checking validity of Customer with customer id " + customer_id);
 
         if (!validateCustomer.checkValidCustomer(customer_id))
             throw new CustomerNotFoundException("There is no Customer with ID " + customer_id);
 
-        logger.info("/api/v1/shoppingCart/shoppingCarts/{customer_id} is being accessed!");
+        logger.info("/api/v1/shopping-cart/shoppingCarts/{customer_id} is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<List<ShoppingCart>> shoppingCartsByCustomerId = shoppingCartService.getShoppingCartsByCustomerId(customer_id);
-        return shoppingCartsByCustomerId.orElseThrow(() -> new ShoppingCartNotFoundException("ShoppingCart Data with customer id " + customer_id + " is not found"));
+        return shoppingCartsByCustomerId.orElseThrow(() -> new ShoppingCartNotFoundException("Shopping Cart Data with customer id " + customer_id + " is not found"));
     }
 
     @GetMapping("/{id}")
     public ShoppingCart getShoppingCartById(@PathVariable("id") long id) {
-        logger.info("/api/v1/shoppingCart/{id} is being accessed!");
+        logger.info("/api/v1/shopping-cart/{id} is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<ShoppingCart> shoppingCartById = shoppingCartService.getShoppingCartById(id);
-        return shoppingCartById.orElseThrow(() -> new ShoppingCartNotFoundException("ShoppingCart Data with id " + id + " is not found"));
+        return shoppingCartById.orElseThrow(() -> new ShoppingCartNotFoundException("Shopping Cart Data with id " + id + " is not found"));
     }
 
 
-    @GetMapping("/shoppingCart-date-time/{shoppingCart_date_time}")
-    public List<ShoppingCart> getShoppingCartsByShoppingCartDateTime(@PathVariable(value = "shoppingCart_date_time") LocalDateTime shoppingCartDateTime) {
-        logger.info("/api/v1/shoppingCart/shoppingCart-date-time/{shoppingCart_date_time} is being accessed!");
+    @GetMapping("/shoppingCart-date-time/{shopping_cart_date_time}")
+    public List<ShoppingCart> getShoppingCartsByShoppingCartDateTime(@PathVariable(value = "shopping_cart_date_time") LocalDateTime shoppingCartDateTime) {
+        logger.info("/api/v1/shopping-cart/shopping-cart-date-time/{shopping_cart_date_time} is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<List<ShoppingCart>> shoppingCartByShoppingCartDateTime = shoppingCartService.getShoppingCartsByOrderDateTime(shoppingCartDateTime);
-        return shoppingCartByShoppingCartDateTime.orElseThrow(() -> new ShoppingCartNotFoundException("ShoppingCart Data with the specified date and time of  " + shoppingCartDateTime + " is not found"));
+        return shoppingCartByShoppingCartDateTime.orElseThrow(() -> new ShoppingCartNotFoundException("Shopping Cart Data with the specified date and time of  " + shoppingCartDateTime + " is not found"));
     }
 
     @GetMapping("/total-price/{total_price}")
     public List<ShoppingCart> getShoppingCartsByTotalPrice(@PathVariable(value = "total_price") double totalPrice) {
-        logger.info("/api/v1/shoppingCart/total-price/{total_price} is being accessed!");
+        logger.info("/api/v1/shopping-cart/total-price/{total_price} is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<List<ShoppingCart>> shoppingCartsByTotalPrice = shoppingCartService.getShoppingCartsByTotalPrice(totalPrice);
-        return shoppingCartsByTotalPrice.orElseThrow(() -> new ShoppingCartNotFoundException("Order Data with the specified date and time of  " + totalPrice + " is not found"));
+        return shoppingCartsByTotalPrice.orElseThrow(() -> new ShoppingCartNotFoundException("Shopping Cart Data with the specified date and time of  " + totalPrice + " is not found"));
 
 
     }
 
     @DeleteMapping("/delete")
     public ShoppingCart deleteShoppingCart(@RequestBody ShoppingCart shoppingCart) {
-        logger.info("/api/v1/shoppingCart/delete is being accessed!");
+        logger.info("/api/v1/shopping-cart/delete is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<ShoppingCart> shoppingCartDeleted = shoppingCartService.deleteShoppingCart(shoppingCart);
-        return shoppingCartDeleted.orElseThrow(() -> new ShoppingCartNotDeletedException("ShoppingCart Data is not Deleted"));
+        return shoppingCartDeleted.orElseThrow(() -> new ShoppingCartNotDeletedException("Shopping Cart Data is not Deleted"));
 
     }
 
     @DeleteMapping("/delete/{id}")
     public ShoppingCart deleteShoppingCartById(@PathVariable("id") long id) {
-        logger.info("/api/v1/shoppingCart/delete/{id} is being accessed!");
+        logger.info("/api/v1/shopping-cart/delete/{id} is being accessed!");
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         Optional<ShoppingCart> shoppingCart = shoppingCartService.getShoppingCartById(id);
         if (!shoppingCart.isPresent() || !shoppingCart.isEmpty())
-            throw new ShoppingCartNotFoundException("There is no ShoppingCart with id " + id + " . Hence, it is not deleted");
+            throw new ShoppingCartNotFoundException("There is no Shopping Cart with id " + id + " . Hence, it is not deleted");
 
 
         Optional<ShoppingCart> shoppingCartDeleted = shoppingCartService.deleteShoppingCartById(id);
-        return shoppingCartDeleted.orElseThrow(() -> new ShoppingCartNotDeletedException("ShoppingCart Data is not Deleted"));
+        return shoppingCartDeleted.orElseThrow(() -> new ShoppingCartNotDeletedException("Shopping Cart Data is not Deleted"));
     }
 }

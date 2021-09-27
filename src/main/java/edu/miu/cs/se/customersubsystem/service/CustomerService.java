@@ -4,8 +4,13 @@ import edu.miu.cs.se.customersubsystem.model.Customer;
 import edu.miu.cs.se.customersubsystem.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -187,5 +192,49 @@ public class CustomerService {
         return Optional.of(customerRepository.save(customerTemp));
     }
 
+    public List<Customer> saveMoreThanOneCustomer(List<Customer> customers)  throws Exception{
+              customers = customerRepository.saveAll(customers);
+        return customers;
+    }
+   /* public List<Customer> saveMoreThanOneCustomer(MultipartFile file)  throws Exception{
+        List<Customer> customers = parseCSVFile(file);
 
+        customers = customerRepository.saveAll(customers);
+         return customers;
+    }
+*/
+    private List<Customer> parseCSVFile(final MultipartFile file) throws Exception {
+        final List<Customer> customers = new ArrayList<>();
+        try {
+            try (final BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    final String[] data = line.split(",");
+                    final Customer customer = new Customer();
+                    customer.setFirstName(data[0]);
+                    customer.setLastName(data[1]);
+                    customer.setEmail(data[2]);
+                    customer.setPhoneNumber(data[3]);
+                    String[] shippingAddress =  data[4].split(",");
+                    customer.getShipping().setStreet1(shippingAddress[0]);
+                    customer.getShipping().setStreet2(shippingAddress[1]);
+                    customer.getShipping().setCity(shippingAddress[2]);
+                    customer.getShipping().setState(shippingAddress[3]);
+                    customer.getShipping().setZipcode(shippingAddress[4]);
+
+                    String[] billingAddress =  data[4].split(",");
+                    customer.getBilling().setStreet1(billingAddress[0]);
+                    customer.getBilling().setStreet2(billingAddress[1]);
+                    customer.getBilling().setCity(billingAddress[2]);
+                    customer.getBilling().setState(billingAddress[3]);
+                    customer.getBilling().setZipcode(billingAddress[4]);
+
+                    customers.add(customer);
+                }
+                return customers;
+            }
+        } catch (final IOException e) {
+             throw new Exception("Failed to parse CSV file {}", e);
+        }
+    }
 }
